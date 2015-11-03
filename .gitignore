@@ -1,0 +1,9 @@
+# files
+#
+*~
+.bash_history
+
+# directories
+#
+Downloads
+sandbox

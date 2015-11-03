@@ -1,0 +1,7 @@
+[user]
+	name = Jeff Care
+	email = jeff.care@sensus.com
+[color]
+	status = auto
+[push]
+	default = simple
