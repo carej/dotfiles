@@ -12,6 +12,7 @@ Downloads/
 sandbox/
 .cache/
 .config/
+.eclipse/
 .local/
 .mozilla/
 .ssh/
