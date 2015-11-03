@@ -1,21 +1,21 @@
 # .bash_profile
 
-# Get the aliases and functions
+# get the aliases and functions
 #
-if [[ -f ~/.bashrc ]]; then
+[[ -f ~/.bashrc ]] && . ~/.bashrc
 
-  . ~/.bashrc
-fi
-
-# User specific environment and startup programs
+# user specific environment and startup programs
 #
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-export EDITOR=nano
-export PS1="\n\e[0;32m[\t]\e[m \e[0;34m\u@\h\e[m\n\w \$ "
 
-# Chef (if available)
+# set nano as the editor if it's available
 #
-if command -v chef > /dev/null; then
+if command -v nano >/dev/null 2>&1; then
 
-  eval "$(chef shell-init bash)"
+  export EDITOR=nano
+  alias pico='nano'
 fi
+
+# setup Chef if it's available
+#
+command -v chef >/dev/null 2>&1 && eval "$(chef shell-init bash)"

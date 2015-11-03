@@ -3,5 +3,6 @@
 	email = jeff.care@sensus.com
 [color]
 	status = auto
+	ui = auto
 [push]
 	default = simple

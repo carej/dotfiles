@@ -1,9 +1,18 @@
 # files
 #
 *~
+.ICEauthority
+.Xauthority
 .bash_history
+.esd_auth
 
 # directories
 #
-Downloads
-sandbox
+Downloads/
+sandbox/
+.cache/
+.config/
+.local/
+.mozilla/
+.ssh/
+.vnc/
