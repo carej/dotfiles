@@ -12,8 +12,13 @@ Downloads/
 sandbox/
 .cache/
 .config/
+.dbus/
 .eclipse/
+.java/
+.jedit/
 .local/
 .mozilla/
+.nx/
+.qt/
 .ssh/
 .vnc/
