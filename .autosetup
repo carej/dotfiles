@@ -1,5 +1,17 @@
 #!/bin/bash -eu
 
+#===============================================================================
+# Automated home directory setup script
+# -------------------------------------
+#
+# To automate the setup of your home directory you can run this script via:
+#
+#   curl http://sensus-stash.davis.sensus.lab:7990/users/carej/repos/homedir/browse/.autosetup?raw | bash
+#
+# Yes, the "curl pipe" method is scary to some. If it's scary to you then just
+# download the file first then execute it locally.
+#===============================================================================
+
 mkdir ${HOME}/sandbox
 cd ${HOME}/sandbox
 
@@ -7,3 +19,4 @@ git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~car
 cd homedir
 git config core.worktree ${HOME}
 git reset --hard origin/master
+
