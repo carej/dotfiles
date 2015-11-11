@@ -4,6 +4,16 @@
 #
 parse_git_branch() {
 
+  # don't show the git decoration in the home directory; this is important
+  # because I usually manage the configuration files in my home via a git repo
+  # and it's usually going to be out of date
+  #
+  if [[ "${PWD}" == "${HOME}" ]]; then
+  
+    echo ""
+    return
+  fi
+  
   local branch=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [[ "${branch}" != "" ]]; then
   
