@@ -13,14 +13,20 @@
 #===============================================================================
 
 [[ -d ${HOME}/sandbox ]] || mkdir ${HOME}/sandbox
-cd ${HOME}/sandbox
 
-if [[ ! -d ${HOME}/sandbox/homedir ]]; then
+# note the subshell here since we are changing directories!
+#
+[[ -d ${HOME}/sandbox/homedir ]] || (
 
+  cd ${HOME}/sandbox
   git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
   cd homedir
   git config core.worktree ${HOME}
-fi
+)
+
+[[ -f ${HOME}/.git ]] || {
+
+  echo "gitdir: ${HOME}/sandbox/homedir/.git" > ${HOME}/.git
+}
 
 git reset --hard origin/master
-
