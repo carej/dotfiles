@@ -1,0 +1,9 @@
+#!/bin/bash -eu
+
+mkdir ${HOME}/sandbox
+cd ${HOME}/sandbox
+
+git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
+cd homedir
+git config core.worktree ${HOME}
+git reset --hard origin/master
