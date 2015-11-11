@@ -12,11 +12,15 @@
 # download the file first then execute it locally.
 #===============================================================================
 
-mkdir ${HOME}/sandbox
+[[ -d ${HOME}/sandbox ]] || mkdir ${HOME}/sandbox
 cd ${HOME}/sandbox
 
-git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
-cd homedir
-git config core.worktree ${HOME}
+if [[ ! -d ${HOME}/sandbox/homedir ]]; then
+
+  git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
+  cd homedir
+  git config core.worktree ${HOME}
+fi
+
 git reset --hard origin/master
 
