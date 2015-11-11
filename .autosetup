@@ -12,21 +12,30 @@
 # download the file first then execute it locally.
 #===============================================================================
 
-[[ -d ${HOME}/sandbox ]] || mkdir ${HOME}/sandbox
+REPO=http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
 
-# note the subshell here since we are changing directories!
-#
-[[ -d ${HOME}/sandbox/homedir ]] || (
+[[ -d ${HOME}/sandbox ]] || {
 
+  echo "Making ${HOME}/sandbox"
+  mkdir ${HOME}/sandbox
+}
+
+[[ -d ${HOME}/sandbox/homedir ]] || {
+
+  echo "Cloning ${REPO}"
   cd ${HOME}/sandbox
-  git clone --no-checkout http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/homedir.git
+  git clone --no-checkout ${REPO}
   cd homedir
   git config core.worktree ${HOME}
-)
+}
 
 [[ -f ${HOME}/.git ]] || {
 
+  echo "Creating ${HOME}/.git"
   echo "gitdir: ${HOME}/sandbox/homedir/.git" > ${HOME}/.git
 }
 
+cd ${HOME}
+git fetch origin
 git reset --hard origin/master
+
