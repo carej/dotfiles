@@ -9,17 +9,17 @@ parse_git_branch() {
   # and it's usually going to be out of date
   #
   if [[ "${PWD}" == "${HOME}" ]]; then
-  
+
     echo ""
     return
   fi
-  
+
   local branch=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [[ "${branch}" != "" ]]; then
-  
+
     echo "[git: ${branch}$(parse_git_dirty)]"
   else
-  
+
     echo ""
   fi
 }
@@ -45,4 +45,12 @@ parse_git_dirty() {
 
     echo ""
   fi
+}
+
+# check that a function exists (shamelessly stolen from https://gist.github.com/mwhite/6887990)
+#
+function_exists() {
+
+  declare -f -F ${1} > /dev/null
+  return ${?}
 }
