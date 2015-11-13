@@ -10,7 +10,7 @@
   s = status --long
   ss = status --short
 
-  # I frequently misspell "add" as "ass" (and I just did it when writing this comment
+  # I frequently misspell "add" as "ass" (and I just did it when writing this comment)
   #
   ass = add
   a = add
