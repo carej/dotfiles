@@ -7,17 +7,29 @@
 [push]
   default = simple
 [alias]
-  s = status --long
-  ss = status --short
-
-  # I frequently misspell "add" as "ass" (and I just did it when writing this comment)
+  # I frequently misspell "add" as "ass" (I did it again when writing this comment)
   #
   ass = add
   a = add
   ai = add --interactive
 
+  b = branch
+  bd = branch --delete
+  bdr = push origin --delete
+
   cm = commit --message
   cma = commit --all --message
 
+  co = checkout
+  com = checkout master
+
+  d = diff
+
+  f = fetch
+  fap = fetch --all --prune
+
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+  s = status --long
+  ss = status --short

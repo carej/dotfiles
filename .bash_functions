@@ -54,3 +54,35 @@ function_exists() {
   declare -f -F ${1} > /dev/null
   return ${?}
 }
+
+# list or less
+#
+function l() {
+
+  # handle special (common?) case for no arguments
+  #
+  if (( ${#} == 0 )); then
+
+    ll
+    return
+  fi
+
+  local -a files
+  local -a dirs
+
+  local arg
+  for arg in "${@}"; do
+
+    if [[ -d "${arg}" ]]; then
+
+      dirs+=("${arg}")
+    else
+
+      files+=("${arg}")
+    fi
+  done
+
+  (( ${#dirs[@]} > 0 )) && ll "${dirs[@]}"
+
+  (( ${#files[@]} > 0 )) && less "${files[@]}"
+}

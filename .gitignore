@@ -22,3 +22,6 @@ sandbox/
 .qt/
 .ssh/
 .vnc/
+.chefdk/
+.gem/
+.knife_autocomplete_cache/
