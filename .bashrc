@@ -26,10 +26,13 @@ export PS1="\n\e[0;32m[\t]\e[m \e[0;34m\w\e[m \e[0;31m\$(parse_git_branch)\e[m\n
 
 # map git aliases to bash aliases (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
-for al in $(__git_aliases); do
+if function_exists '__git_aliases'; then
 
-  alias g${al}="git ${al}"
+  for al in $(__git_aliases); do
 
-  complete_func=_git_$(__git_aliased_command ${al})
-  function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
-done
+    alias g${al}="git ${al}"
+
+    complete_func=_git_$(__git_aliased_command ${al})
+    function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
+  done
+fi
