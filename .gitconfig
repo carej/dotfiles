@@ -33,3 +33,5 @@
 
   s = status --long
   ss = status --short
+[core]
+  autocrlf = input
