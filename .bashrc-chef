@@ -1,0 +1,7 @@
+# .bashrc-chef
+
+# source the main .bashrc
+#
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+command -v chef >/dev/null 2>&1 && eval "$(chef shell-init bash)"

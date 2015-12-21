@@ -2,7 +2,7 @@
 
 # get current branch in git repo (shamelessly stolen from ezprompt.net)
 #
-parse_git_branch() {
+function parse_git_branch() {
 
   # don't show the git decoration in the home directory; this is important
   # because I usually manage the configuration files in my home via a git repo
@@ -26,7 +26,7 @@ parse_git_branch() {
 
 # get current status of git repo (shamelessly stolen from ezprompt.net)
 #
-parse_git_dirty() {
+function parse_git_dirty() {
 
   local status=$(git status 2>&1 | tee)
   local bits=''
@@ -49,7 +49,7 @@ parse_git_dirty() {
 
 # check that a function exists (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
-function_exists() {
+function function_exists() {
 
   declare -f -F ${1} > /dev/null
   return ${?}

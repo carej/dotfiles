@@ -8,14 +8,6 @@
 #
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
-# set nano as the editor if it's available
+# rvm
 #
-if command -v nano >/dev/null 2>&1; then
-
-  export EDITOR=nano
-  alias pico='nano'
-fi
-
-# setup Chef if it's available
-#
-command -v chef >/dev/null 2>&1 && eval "$(chef shell-init bash)"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

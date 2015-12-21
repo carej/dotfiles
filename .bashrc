@@ -36,3 +36,15 @@ if function_exists '__git_aliases'; then
     function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
   done
 fi
+
+# set nano as the editor if it's available
+#
+if command -v nano >/dev/null 2>&1; then
+
+  export EDITOR=nano
+  alias pico='nano'
+fi
+
+# rvm
+#
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

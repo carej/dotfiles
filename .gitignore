@@ -1,27 +1,4 @@
 # files
 #
 *~
-.ICEauthority
-.Xauthority
-.bash_history
-.esd_auth
-
-# directories
-#
-Downloads/
-sandbox/
-.cache/
-.config/
-.dbus/
-.eclipse/
-.java/
-.jedit/
-.local/
-.mozilla/
-.nx/
-.qt/
-.ssh/
-.vnc/
-.chefdk/
-.gem/
-.knife_autocomplete_cache/
+localtest.bash
