@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-GIT_REPO="ssh://git@sensus-stash.davis.sensus.lab:7999/~carej/dotfiles.git"
-GIT_REPO_RO="http://carej@sensus-stash.davis.sensus.lab:7990/scm/~carej/dotfiles.git"
-IGNORED="install.bash|localtest.bash|.git$|.git/|.gitignore|README|README.md"
+GIT_REPO='ssh://git@github.com:carej/dotfiles.git'
+GIT_REPO_RO='https://github.com/carej/dotfiles.git'
+IGNORED='install.bash|localtest.bash|.git$|.git/|.gitignore|README|README.md'
 
 DEBUG=false
 DOTFILES=${HOME}/.dotfiles

@@ -59,13 +59,7 @@ bindkey -k k9 select 9
 
 screen -t top 0 htop
 
-chdir ${HOME}/sandbox/arqchef
-screen -t arqchef 1 bash --login --rcfile ${HOME}/.bashrc-chef
-
-chdir ${HOME}/sandbox/sensus-jenkins
-screen -t jenkins 2 bash --login --rcfile ${HOME}/.bashrc-chef
-
 chdir ${HOME}
-screen -t bash 3
+screen -t bash 1
 
-select 3
+select 1
