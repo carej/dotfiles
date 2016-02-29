@@ -17,7 +17,8 @@ function parse_git_branch() {
   local branch=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [[ "${branch}" != "" ]]; then
 
-    echo "[git: ${branch}$(parse_git_dirty)]"
+#    echo "[git: ${branch}$(parse_git_dirty)]"
+    echo "[git: ${branch}]"
   else
 
     echo ""
