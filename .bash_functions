@@ -14,7 +14,7 @@ function parse_git_branch() {
     return
   fi
 
-  local branch=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  local branch=$(git rev-parse --abbrev-ref HEAD)
   if [[ "${branch}" != "" ]]; then
 
     # echo "[${branch}$(parse_git_dirty)]"
