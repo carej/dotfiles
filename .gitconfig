@@ -25,8 +25,9 @@
   com9 = checkout master09
 
   d = diff
-  ds = diff --staged
   dh = diff HEAD
+  do = diff origin
+  ds = diff --staged
 
   f = fetch
   fa = fetch --all

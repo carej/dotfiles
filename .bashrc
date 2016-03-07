@@ -10,16 +10,23 @@ umask 027
 #
 function sip() {
 
-  [[ -f "${1}" ]] && . "${1}"
+  [[ -f "${1}" ]] && source "${1}"
 }
 
 # source a bunch of crap and then kill the sip function
 #
 sip /etc/bashrc
-sip /etc/bash_completion.d/git
 sip ~/.bash_aliases
 sip ~/.bash_functions
 unset sip
+
+# source all of the files in the users .bash_completion.d directory
+#
+for COMPLETION in $(find ~/.bash_completion.d -type f); do
+
+  source "${COMPLETION}"
+done
+unset COMPLETION
 
 # set a custom prompt
 #
