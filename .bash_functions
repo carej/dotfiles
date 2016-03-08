@@ -17,7 +17,7 @@ function parse_git_branch() {
   local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
   if [[ "${branch}" != "" ]]; then
 
-    echo "[git: ${branch}$(parse_git_dirty)]"
+    echo "[${branch}$(parse_git_dirty)]"
   else
 
     echo ""
@@ -28,7 +28,7 @@ function parse_git_branch() {
 #
 function parse_git_dirty() {
 
-  local status=$(git status 2>&1 | tee)
+  local status=$(git status 2>&1)
   local bits=''
 
   echo -n "${status}" 2>/dev/null | grep "renamed:"                &>/dev/null && bits=">${bits}"

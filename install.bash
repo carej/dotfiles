@@ -60,9 +60,10 @@ if [[ ! -e ${DOTFILES} ]]; then
   fi
 else
 
+  cd ${DOTFILES}
   echo "|-> homedir already cloned to ${DOTFILES}"
-  echo "|-> pulling origin master"
-  # cd ${DOTFILES} && git pull origin master
+  echo "|-> pulling origin $(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+  git pull
 fi
 
 echo "|* linking assets in ${HOME}"

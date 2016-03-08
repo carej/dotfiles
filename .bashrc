@@ -4,21 +4,29 @@
 #
 umask 027
 
-# source global definitions
+# source (a file) if present
 #
-[[ -f /etc/bashrc ]] && . /etc/bashrc
+# $1 - the file to source
+#
+function sip() {
 
-# source local aliases
-#
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+  [[ -f "${1}" ]] && source "${1}"
+}
 
-# source local functions
+# source a bunch of crap and then kill the sip function
 #
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+sip /etc/bashrc
+sip ~/.bash_aliases
+sip ~/.bash_functions
+unset sip
 
-# uncomment the following line if you don't like systemctl's auto-paging feature:
+# source all of the files in the users .bash_completion.d directory
 #
-# export SYSTEMD_PAGER=
+for COMPLETION in $(find ~/.bash_completion.d -type f); do
+
+  source "${COMPLETION}"
+done
+unset COMPLETION
 
 # set a custom prompt
 #
@@ -35,6 +43,7 @@ if function_exists '__git_aliases'; then
     complete_func=_git_$(__git_aliased_command ${al})
     function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
   done
+  unset al
 fi
 
 # set nano as the editor if it's available
