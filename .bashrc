@@ -41,7 +41,7 @@ if function_exists '__git_aliases'; then
     alias g${al}="git ${al}"
 
     complete_func=_git_$(__git_aliased_command ${al})
-    function_exists ${complete_fnc} && __gitcomp g${al} ${complete_func}
+    function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
   done
   unset al
 fi
