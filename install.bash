@@ -2,7 +2,7 @@
 
 GIT_REPO='ssh://git@github.com:carej/dotfiles.git'
 GIT_REPO_RO='https://github.com/carej/dotfiles.git'
-IGNORED='install.bash|localtest.bash|.git$|.git/|.gitignore|README|README.md'
+IGNORED='install.bash|localtest.bash|\.git$|\.git/|.gitignore|README|README.md'
 
 DEBUG=false
 DOTFILES=${HOME}/.dotfiles
@@ -10,12 +10,16 @@ BACKUP=${HOME}/.backup
 
 linkAsset() {
 
+  local source="${DOTFILES}/${1}"
+  local target="${HOME}/${1}"
+
   if [[ ${DEBUG} == "true" ]]; then
 
-    echo "ln -s ${DOTFILES}/${1} ${HOME}/${1}"
+    echo "ln -s '${source}' '${target}'"
   else
 
-    ln -s "${DOTFILES}/${1}" "${HOME}/${1}"
+    mkdir -p "${target%/*}"
+    ln -s "${source}" "${target}"
   fi
 }
 
@@ -69,7 +73,7 @@ fi
 echo "|* linking assets in ${HOME}"
 find ${DOTFILES} -type f -printf '%P\n' | egrep -v ${IGNORED} | while read asset; do
 
-  # asset does not exist, can just copy it
+  # asset does not exist, can just link it
   #
   if [[ ! -e "${HOME}/${asset}" ]]; then
 
