@@ -4,8 +4,8 @@
 [color]
   status = auto
   ui = auto
-#[push]
-#  default = simple
+[push]
+  default = upstream
 [alias]
   # I frequently misspell "add" as "ass" (I did it again when writing this comment)
   #
@@ -22,10 +22,15 @@
 
   co = checkout
   com = checkout master
+  com9 = checkout master09
 
   d = diff
+  dh = diff HEAD
+  do = diff origin
+  ds = diff --staged
 
   f = fetch
+  fa = fetch --all
   fap = fetch --all --prune
 
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
@@ -34,4 +39,5 @@
   s = status
   ss = status --short
 [core]
+  eol = lf
   autocrlf = input
