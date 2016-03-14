@@ -42,3 +42,13 @@
 [core]
   eol = lf
   autocrlf = input
+[diff]
+  tool = bc
+[difftool]
+  prompt = false
+[difftool "bc"]
+  cmd = /usr/local/bin/bcomp "$(cygpath -w ${LOCAL})" "${REMOTE}"
+[merge]
+  tool = bc
+[mergetool "bc"]
+  path = /usr/local/bin/bcomp
