@@ -25,12 +25,17 @@
 
   d = diff
   dh = diff HEAD
-  do = diff origin
   ds = diff --staged
+  du = diff @{upstream}
+
+  dt = difftool
+  dth = difftool HEAD
+  dts = difftool --staged
+  dtu = difftool @{upstream}
 
   f = fetch
-  fa = fetch --all
-  fap = fetch --all --prune
+  fa = fetch --all --tags
+  fap = fetch --all --tags --prune
 
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
