@@ -2,6 +2,7 @@ set autoindent
 set mouse
 set tabsize 2
 set tabstospaces
+set nowrap
 
 include /usr/share/nano/asm.nanorc
 include /usr/share/nano/c.nanorc
