@@ -53,3 +53,8 @@ if command -v nano >/dev/null 2>&1; then
   export EDITOR=nano
   alias pico='nano'
 fi
+
+# setup gradle
+#
+export GRADLE_HOME=/usr/local/gradle
+export PATH=${GRADLE_HOME}/bin:${PATH}
