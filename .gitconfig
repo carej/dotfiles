@@ -5,7 +5,7 @@
   status = auto
   ui = auto
 [push]
-  default = upstream
+  default = simple
 [alias]
   # I frequently misspell "add" as "ass" (I did it again when writing this comment)
   #
