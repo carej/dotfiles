@@ -2,7 +2,7 @@
 
 # prevent default group writes & disallow ANY permissions to others
 #
-umask 027
+umask 022
 
 # source (a file) if present
 #
@@ -22,7 +22,7 @@ unset sip
 
 # source all of the files in the users .bash_completion.d directory
 #
-for COMPLETION in $(find ~/.bash_completion.d -type f); do
+for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
 
   source "${COMPLETION}"
 done
