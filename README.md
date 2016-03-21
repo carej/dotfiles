@@ -17,6 +17,6 @@ curl https://raw.githubusercontent.com/carej/dotfiles/master/install.bash | bash
 
 ## Prerequisites
 
-* On Windows systems with Cygwin, Beyond Compare should be symlinked to /usr/local/bin/bcomp
-* Byobu/tmux was tested & confirmed to work with Byobu 5.104 & tmux 2.1
+* On Windows systems with [Cygwin](https://www.cygwin.com/), [Beyond Compare](http://www.scootersoftware.com/index.php) should be symlinked to /usr/local/bin/bcomp
+* Byobu/tmux was tested & confirmed to work with [Byobu](http://byobu.co/) 5.104 & [tmux](https://tmux.github.io/) 2.1
  * This required custom build & installation on RHEL 7 as of 21 March 2016
