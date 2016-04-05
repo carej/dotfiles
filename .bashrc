@@ -56,5 +56,24 @@ fi
 
 # setup gradle
 #
-export GRADLE_HOME=/usr/local/gradle
-export PATH=${GRADLE_HOME}/bin:${PATH}
+[[ -d /usr/local/gradle ]] && {
+
+  export GRADLE_HOME=/usr/local/gradle
+  export PATH=${GRADLE_HOME}/bin:${PATH}
+}
+
+# setup nodejs
+#
+NODE_DIR="/cygdrive/c/Program Files/nodejs"
+if [[ -d "${NODE_DIR}" ]]; then
+
+  export PATH="${NODE_DIR}":${PATH}
+
+  NPM_G="$(cygpath $(npm bin -g))"
+  if [[ -d "${NPM_G}" ]]; then
+
+    export PATH="${NPM_G}":${PATH}
+  fi
+  unset NPM_G
+fi
+unset NODE_DIR
