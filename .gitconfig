@@ -43,6 +43,10 @@
   ls = log --pretty=format:'%C(green)%h %C(yellow)[%ar]%C(red)%d %Creset%s%C(blue) [%aN | %cN]'
   ll = log --numstat --pretty=format:'%n%C(green)%H %C(red)%d%n%Creset%s%n%C(yellow)%aN, %aI%n%C(blue)%cN, %cI%Creset'
 
+  # use with caution! this blows away all local changes!
+  #
+  rhu = reset --hard @{u}
+
   s = status
   ss = status --short
 [core]
