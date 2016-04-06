@@ -86,3 +86,14 @@ function l() {
 
   (( ${#files[@]} > 0 )) && less "${files[@]}"
 }
+
+# convenience wrapper around "git worktree add"
+#
+function gwta() {
+
+  local arg
+  for arg in "${@}"; do
+
+    git worktree add -b ${arg} ../${arg} origin/${arg}
+  done
+}
