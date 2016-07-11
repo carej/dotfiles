@@ -77,3 +77,8 @@ if [[ -d "${NODE_DIR}" ]]; then
   unset NPM_G
 fi
 unset NODE_DIR
+
+# setup JDK
+#
+export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_74"
+export PATH="${JAVA_HOME}/bin:${PATH}"
