@@ -17,6 +17,7 @@ function sip() {
 #
 sip /etc/bash.bashrc
 sip /usr/share/bash-completion/bash_completion
+sip /usr/share/bash-completion/completions/git
 sip ~/.bash_aliases
 sip ~/.bash_functions
 unset sip
