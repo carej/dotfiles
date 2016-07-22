@@ -15,18 +15,19 @@ function sip() {
 
 # source a bunch of crap and then kill the sip function
 #
-sip /etc/bashrc
+sip /etc/bash.bashrc
+sip /usr/share/bash-completion/bash_completion
 sip ~/.bash_aliases
 sip ~/.bash_functions
 unset sip
 
 # source all of the files in the users .bash_completion.d directory
 #
-for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
-
-  source "${COMPLETION}"
-done
-unset COMPLETION
+#for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
+#
+#  source "${COMPLETION}"
+#done
+#unset COMPLETION
 
 # set a custom prompt
 #
