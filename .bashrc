@@ -10,7 +10,11 @@ umask 022
 #
 function sip() {
 
-  [[ -f "${1}" ]] && source "${1}"
+  if [[ -f "${1}" ]]; then
+ 
+    echo -ne "sourcing ${1}" 
+    time source "${1}"
+  fi
 }
 
 # source a bunch of crap and then kill the sip function
@@ -36,7 +40,8 @@ export PS1="\n\e[0;32m[\t]\e[m \e[0;34m\w\e[m \e[0;31m\$(parse_git_branch)\e[m\n
 
 # map git aliases to bash aliases (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
-if function_exists '__git_aliases'; then
+echo -ne 'creating git aliases'
+time if function_exists '__git_aliases'; then
 
   for al in $(__git_aliases); do
 
@@ -82,5 +87,5 @@ unset NODE_DIR
 
 # setup JDK
 #
-export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_74"
+export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_92"
 export PATH="${JAVA_HOME}/bin:${PATH}"
