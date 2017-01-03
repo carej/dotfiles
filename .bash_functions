@@ -97,3 +97,15 @@ function gwta() {
     git worktree add -b ${arg} ../${arg} origin/${arg}
   done
 }
+
+# convenience wrapper around "git worktree add" for creating a new working tree
+# from the current HEAD
+#
+function gwtc() {
+
+  local arg
+  for arg in "${@}"; do
+
+    git worktree add -b ${arg} ../${arg}
+  done
+}
