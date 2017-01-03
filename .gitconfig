@@ -50,6 +50,9 @@
   s = status --long
   ss = status --short
   sv = status --verbose
+
+  wtl = worktree list
+  wtp = worktree prune --verbose
 [core]
   eol = lf
   autocrlf = input
