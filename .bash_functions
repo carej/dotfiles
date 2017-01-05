@@ -106,6 +106,7 @@ function gwtc() {
   local arg
   for arg in "${@}"; do
 
-    git worktree add -b ${arg} ../${arg}
+    git push origin HEAD:${arg}
+    gwta ${arg}
   done
 }
