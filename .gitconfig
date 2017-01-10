@@ -16,6 +16,7 @@
   b = branch
   bd = branch --delete
   bdr = push origin --delete
+  br = branch --remote
 
   cm = commit --message
   cma = commit --all --message
@@ -43,9 +44,12 @@
   ls = log --pretty=format:'%C(green)%h %C(yellow)[%ar]%C(red)%d %Creset%s%C(blue) [%aN | %cN]'
   ll = log --numstat --pretty=format:'%n%C(green)%H %C(red)%d%n%Creset%s%n%C(yellow)%aN, %aI%n%C(blue)%cN, %cI%Creset'
 
+  p = pull
+  pr = pull --rebase
+
   # use with caution! this blows away all local changes!
   #
-  rhu = reset --hard @{u}
+  rhu = reset --hard @{upstream}
 
   s = status
   ss = status --short
