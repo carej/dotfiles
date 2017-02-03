@@ -45,6 +45,7 @@
 
   p = pull
   pr = pull --rebase
+  pri = pull --rebase=interactive
 
   # use with caution! this blows away all local changes!
   #
