@@ -20,6 +20,7 @@
 
   cm = commit --message
   cma = commit --all --message
+  cane = commit --amend --no-edit
 
   co = checkout
   com = checkout master
