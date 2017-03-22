@@ -6,6 +6,8 @@
   ui = auto
 [push]
   default = upstream
+[pull]
+  rebase = true
 [alias]
   # I frequently misspell "add" as "ass" (I did it again when writing this comment)
   #
@@ -28,15 +30,15 @@
 
   d = diff
   dh = diff HEAD
+  dp = diff @{upstream}..HEAD
   ds = diff --staged
   du = diff @{upstream}
-  dp = diff @{upstream}..HEAD
 
   dt = difftool
   dth = difftool HEAD
+  dtp = difftool @{upstream}..HEAD
   dts = difftool --staged
   dtu = difftool @{upstream}
-  dtp = difftool @{upstream}..HEAD
 
   f = fetch
   fa = fetch --all --tags
@@ -46,9 +48,17 @@
   ll = log --numstat --pretty=format:'%n%C(green)%H %C(red)%d%n%Creset%s%n%C(yellow)%aN, %aI%n%C(blue)%cN, %cI%Creset'
 
   mt = mergetool
-  
+
+  pohm = push origin HEAD:master
+  pohm9 = push origin HEAD:master09
+
   pr = pull --rebase
   pri = pull --rebase=interactive
+  prom = pull --rebase=interactive origin master
+  prom9 = pull --rebase=interactive origin master09
+
+  rba = rebase --abort
+  rbc = rebase --continue
 
   # use with caution! this blows away all local changes!
   #
