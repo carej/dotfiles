@@ -116,7 +116,7 @@ function gwtc() {
 function gqrb() {
 
   git fetch origin --prune
-  git checkout ${1}
+  git checkout ${2}
   git reset --hard @{upstream}
-  git rebase --interactive origin/${2}
+  git rebase --interactive origin/${1}
 }
