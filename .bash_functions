@@ -110,3 +110,13 @@ function gwtc() {
     gwta ${arg}
   done
 }
+
+# convenience wrapper for performing interactive rebases
+#
+function gqrb() {
+
+  git fetch origin --prune
+  git checkout ${1}
+  git reset --hard @{upstream}
+  git rebase --interactive origin/${2}
+}
