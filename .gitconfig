@@ -28,6 +28,8 @@
   com = checkout master
   com9 = checkout master09
 
+  cp = cherry-pick
+
   d = diff
   dh = diff HEAD
   dp = diff @{upstream}..HEAD
