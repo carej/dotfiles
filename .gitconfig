@@ -27,6 +27,8 @@
   co = checkout
   com = checkout master
 
+  cp = cherry-pick
+
   d = diff
   dh = diff HEAD
   dp = diff @{upstream}..HEAD
