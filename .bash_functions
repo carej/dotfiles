@@ -125,5 +125,5 @@ function gqrb() {
 #
 function cirb() {
 
-  exec ciRebase --to ${1} --from ${2}
+  ciRebase --to ${1} --from ${2}
 }
