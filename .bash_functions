@@ -120,3 +120,10 @@ function gqrb() {
   git reset --hard @{upstream}
   git rebase --interactive origin/${1}
 }
+
+# convenience wrapper for ciRebase
+#
+function cirb() {
+
+  exec ciRebase --to ${1} --from ${2}
+}
