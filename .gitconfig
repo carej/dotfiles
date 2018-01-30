@@ -86,3 +86,7 @@
   tool = bc
 [mergetool "bc"]
   path = /usr/local/bin/bcomp
+[rebase]
+  abbreviateCommands = true
+[format]
+  pretty = fuller
