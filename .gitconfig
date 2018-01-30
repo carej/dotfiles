@@ -75,3 +75,7 @@
 [core]
   eol = lf
   autocrlf = input
+[rebase]
+  abbreviateCommands = true
+[format]
+  pretty = fuller
