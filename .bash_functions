@@ -149,7 +149,7 @@ function inflate {
 
   if [[ ${3} ]]; then
 
-    for FILE in $(find ${2} -type f \( -name '*.zip' -o -name '*.jar' \)); do
+    for FILE in $(find ${2} -type f \( -name '*.zip' -o -name '*.jar' -o -name '*.war' -o -name '*.ear' -o -name '*.tar' -o -name '*.tgz' -o -name '*.tar.gz' \)); do
 
       inflate ${FILE} $(dirname ${FILE})/expanded-$(basename ${FILE})
     done
