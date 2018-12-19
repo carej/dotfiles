@@ -64,10 +64,10 @@
 
   # use with caution! this blows away all local changes!
   #
-  ru = reset --hard @{upstream}
+  ru = reset @{upstream}
   rhu = reset --hard @{upstream}
 
-  s = status
+  s = status --long
   ss = status --short
 
   wtl = worktree list

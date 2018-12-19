@@ -17,7 +17,7 @@ function parse_git_branch() {
   local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
   if [[ "${branch}" != "" ]]; then
 
-    echo "[${branch}]"
+    echo "[${branch}$(parse_git_dirty)]"
   else
 
     echo ""
