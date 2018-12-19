@@ -10,11 +10,7 @@ umask 022
 #
 function sip() {
 
-  if [[ -f "${1}" ]]; then
- 
-    echo -ne "sourcing ${1}" 
-    time source "${1}"
-  fi
+  [[ -f "${1}" ]] && source "${1}"
 }
 
 # source a bunch of crap and then kill the sip function
@@ -40,8 +36,7 @@ export PS1="\n\e[0;32m[\t]\e[m \e[0;34m\w\e[m \e[0;31m\$(parse_git_branch)\e[m\n
 
 # map git aliases to bash aliases (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
-echo -ne 'creating git aliases'
-time if function_exists '__git_aliases'; then
+if function_exists '__git_aliases'; then
 
   for al in $(__git_aliases); do
 
