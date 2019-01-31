@@ -23,6 +23,7 @@ function parse_git_branch() {
     echo ""
   fi
 }
+export -f parse_git_branch
 
 # get current status of git repo (shamelessly stolen from ezprompt.net)
 #
@@ -46,6 +47,7 @@ function parse_git_dirty() {
     echo ""
   fi
 }
+export -f parse_git_dirty
 
 # check that a function exists (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
@@ -54,6 +56,7 @@ function function_exists() {
   declare -f -F ${1} > /dev/null
   return ${?}
 }
+export -f function_exists
 
 # list or less
 #
@@ -63,7 +66,7 @@ function l() {
   #
   if (( ${#} == 0 )); then
 
-    ll
+    ls -lh
     return
   fi
 
@@ -82,10 +85,11 @@ function l() {
     fi
   done
 
-  (( ${#dirs[@]} > 0 )) && ll "${dirs[@]}"
+  (( ${#dirs[@]} > 0 )) && ls -lh "${dirs[@]}"
 
   (( ${#files[@]} > 0 )) && less "${files[@]}"
 }
+export -f l
 
 # convenience wrapper around "git worktree add"
 #
@@ -155,6 +159,7 @@ function inflate {
     done
   fi
 }
+export -f inflate
 
 function expandArchive() {
 
@@ -187,3 +192,4 @@ function expandArchive() {
     inflate ${FILE} ${EXPANDED} ${RECURSIVE}
   done
 }
+export -f expandArchive
