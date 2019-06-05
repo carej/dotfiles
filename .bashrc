@@ -36,17 +36,14 @@ export PS1="\n\e[0;32m[\t]\e[m \e[0;34m\w\e[m \e[0;31m\$(parse_git_branch)\e[m\n
 
 # map git aliases to bash aliases (shamelessly stolen from https://gist.github.com/mwhite/6887990)
 #
-if function_exists '__git_aliases'; then
+for al in $(git config --get-regexp '^alias\.' | cut -f 1 -d ' ' | cut -f 2 -d '.'); do
 
-  for al in $(__git_aliases); do
+  alias g${al}="git ${al}"
 
-    alias g${al}="git ${al}"
-
-    complete_func=_git_$(__git_aliased_command ${al})
-    function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
-  done
-  unset al
-fi
+  complete_func=_git_$(__git_aliased_command ${al})
+  function_exists ${complete_fnc} && __git_complete g${al} ${complete_func}
+done
+unset al
 
 # set nano as the editor if it's available
 #
