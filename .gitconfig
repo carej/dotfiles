@@ -89,3 +89,5 @@
   abbreviateCommands = true
 [format]
   pretty = fuller
+[status]
+  submoduleSummary = true
