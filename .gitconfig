@@ -50,11 +50,11 @@
 
   mt = mergetool
 
-  pohm = push origin HEAD:master
+  pohm = push origin HEAD:main
 
   pr = pull --rebase
   pri = pull --rebase=interactive
-  prom = pull --rebase=interactive origin master
+  prom = pull --rebase=interactive origin main
 
   rba = rebase --abort
   rbc = rebase --continue
