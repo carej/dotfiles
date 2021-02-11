@@ -125,13 +125,6 @@ function gqrb() {
   git rebase --interactive origin/${1}
 }
 
-# convenience wrapper for ciRebase
-#
-function cirb() {
-
-  ciRebase --to ${1} --from ${2}
-}
-
 # $1 - the file to expand
 # $2 - the expansion destination
 # $3 - recurse
