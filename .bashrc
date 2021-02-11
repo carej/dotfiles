@@ -153,11 +153,14 @@ fi
 
 # source all of the files in the users .bash_completion.d directory
 #
-for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
+if [ -d ~/.bash_completion.d ]; then
 
-  . "${COMPLETION}"
-done
-unset COMPLETION
+  for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
+  
+    . "${COMPLETION}"
+  done
+  unset COMPLETION
+fi
 
 # use nano if it's there; nostalgia for college days with pine & pico
 #
@@ -172,9 +175,5 @@ fi
 for gal in $(git config --get-regexp '^alias\.' | cut -f 1 -d ' ' | cut -f 2 -d '.'); do
 
   alias g${gal}="git ${gal}"
-
-  complete_func=_git_$(__git_aliased_command ${gal})
-  function_exists ${complete_fnc} && __git_complete g${gal} ${complete_func}
 done
 unset gal
-
