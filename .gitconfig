@@ -1,11 +1,11 @@
 [user]
   name = Jeff Care
-  email = careje@gmail.com
+  email = jeff.care@sas.com
 [color]
   status = auto
   ui = auto
 [push]
-  default = simple
+  default = upstream
 [pull]
   rebase = true
 [alias]
@@ -25,7 +25,7 @@
   cane = commit --amend --no-edit
 
   co = checkout
-  com = checkout master
+  com = checkout main
 
   cp = cherry-pick
 
@@ -72,6 +72,16 @@
 [core]
   eol = lf
   autocrlf = input
+[diff]
+  tool = bc
+[difftool]
+  prompt = false
+[difftool "bc"]
+  cmd = /usr/local/bin/bcomp "${LOCAL}" "${REMOTE}"
+[merge]
+  tool = bc
+[mergetool "bc"]
+  path = /usr/local/bin/bcomp
 [rebase]
   abbreviateCommands = true
 [format]
