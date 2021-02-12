@@ -66,7 +66,7 @@ function l() {
   #
   if (( ${#} == 0 )); then
 
-    ls -lh
+    ls --color=auto -lh
     return
   fi
 
@@ -85,7 +85,7 @@ function l() {
     fi
   done
 
-  (( ${#dirs[@]} > 0 )) && ls -lh "${dirs[@]}"
+  (( ${#dirs[@]} > 0 )) && ls --color=auto -lh "${dirs[@]}"
 
   (( ${#files[@]} > 0 )) && less "${files[@]}"
 }
