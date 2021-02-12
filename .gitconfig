@@ -73,15 +73,15 @@
   eol = lf
   autocrlf = input
 [diff]
-  tool = bc
+  tool = bc4
 [difftool]
   prompt = false
-[difftool "bc"]
-  cmd = /usr/local/bin/bcomp "${LOCAL}" "${REMOTE}"
+[difftool "bc4"]
+  cmd = /usr/local/bin/bcomp "$(wslpath -aw ${LOCAL})" "$(wslpath -aw ${REMOTE})"
 [merge]
-  tool = bc
-[mergetool "bc"]
-  path = /usr/local/bin/bcomp
+  tool = bc4
+[mergetool "bc4"]
+  cmd = /usr/local/bin/bcomp "$(wslpath -aw ${LOCAL})" "$(wslpath -aw ${REMOTE})" "$(wslpath -aw ${BASE})" "$(wslpath -aw ${MERGED})"
 [rebase]
   abbreviateCommands = true
 [format]
