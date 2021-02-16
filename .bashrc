@@ -79,7 +79,6 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 
-  # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   PS1="${debian_chroot:+($debian_chroot)}\n\e[0;32m[\t]\e[m \e[0;34m\w\e[m \e[0;31m\$(parse_git_branch)\e[m\n\u@\h (\!) \\$ "
 else
 
@@ -103,8 +102,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
 
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
 
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -125,41 +122,30 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 #
-if [ -f ~/.bash_aliases ]; then
-
-  . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # function definitions
 #
-if [ -f ~/.bash_functions ]; then
-
-  . ~/.bash_functions
-fi
+[ -f ~/.bash_functions ] && source ~/.bash_functions
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# sources /etc/bash.bashrc)
+#
 if ! shopt -oq posix; then
 
   if [ -f /usr/share/bash-completion/bash_completion ]; then
 
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
 
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
-fi
 
-# source all of the files in the users .bash_completion.d directory
-#
-if [ -d ~/.bash_completion.d ]; then
-
-  for COMPLETION in $(find -L ~/.bash_completion.d -type f); do
-  
-    . "${COMPLETION}"
-  done
-  unset COMPLETION
+  # load the git completions now so that we can use then when setting up
+  # completions for git aliases
+  #
+  [ -f /usr/share/bash-completion/completions/git ] && source /usr/share/bash-completion/completions/git
 fi
 
 # use nano if it's there; nostalgia for college days with pine & pico
@@ -175,5 +161,8 @@ fi
 for gal in $(git config --get-regexp '^alias\.' | cut -f 1 -d ' ' | cut -f 2 -d '.'); do
 
   alias g${gal}="git ${gal}"
+
+  complete_func=_git_$(__git_aliased_command ${al})
+  function_exists ${complete_func} && __git_complete g${gal} ${complete_func}
 done
 unset gal
