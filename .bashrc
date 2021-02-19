@@ -166,3 +166,9 @@ for gal in $(git config --get-regexp '^alias\.' | cut -f 1 -d ' ' | cut -f 2 -d 
   function_exists ${complete_func} && __git_complete g${gal} ${complete_func}
 done
 unset gal
+
+# run the AWS authentication when starting a new shell
+#
+awskey
+awsecr
+export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain ci360-dev --domain-owner 952478859445 --region us-east-1 --query authorizationToken --output text)
