@@ -15,6 +15,7 @@ linkAsset() {
 
   if [[ ${DEBUG} == "true" ]]; then
 
+    echo "mkdir -p '${target%/*}'"
     echo "ln -s '${source}' '${target}'"
   else
 
@@ -71,15 +72,24 @@ else
 fi
 
 echo "|* linking assets in ${HOME}"
-find ${DOTFILES} -type f -printf '%P\n' | egrep -v ${IGNORED} | while read asset; do
+for asset in $(find ${DOTFILES} -type f); do
+
+  asset=${asset#${DOTFILES}/}
+
+  # this is a file that we know should be skipped
+  #
+  if egrep -q ${IGNORED} <<< "${asset}"; then
+
+    [[ ${DEBUG} == "true" ]] && echo "S [skipped]      ${HOME}/${asset}"
+    continue
 
   # asset does not exist, can just link it
   #
-  if [[ ! -e "${HOME}/${asset}" ]]; then
+  elif [[ ! -e "${HOME}/${asset}" ]]; then
 
     echo "N [new]          ${HOME}/${asset}"
     linkAsset "${asset}"
-
+      
   # asset is an already existent directory
   #
   elif [[ -d "${HOME}/${asset}" ]]; then
