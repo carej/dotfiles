@@ -54,3 +54,7 @@ if command -v nano >/dev/null 2>&1; then
   export EDITOR=nano
   alias pico='nano'
 fi
+
+# Upstart magic tool (not sure why this is in both the profile AND the rc file)
+#
+[[ -e ~/.umt/umt-profile ]] && source ~/.umt/umt-profile
