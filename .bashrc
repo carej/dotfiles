@@ -55,6 +55,7 @@ if command -v nano >/dev/null 2>&1; then
   alias pico='nano'
 fi
 
-# Upstart magic tool (not sure why this is in both the profile AND the rc file)
+# Upstart magic tool (not sure why this is in both the profile AND the rc file
+# so I am commenting it out here)
 #
-[[ -e ~/.umt/umt-profile ]] && source ~/.umt/umt-profile
+# [[ -e ~/.umt/umt-profile ]] && source ~/.umt/umt-profile
