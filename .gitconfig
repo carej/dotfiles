@@ -74,5 +74,6 @@
   autocrlf = input
 [rebase]
   abbreviateCommands = true
+  autosquash = true
 [format]
   pretty = fuller
