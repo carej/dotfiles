@@ -5,7 +5,7 @@
   status = auto
   ui = auto
 [push]
-  default = simple
+  default = upstream
 [pull]
   rebase = true
 [alias]
@@ -23,6 +23,8 @@
   cm = commit --message
   cma = commit --all --message
   cane = commit --amend --no-edit
+  cf = commit --fixup
+  cs = commit --squash
 
   co = checkout
   com = checkout master
@@ -49,8 +51,6 @@
   ll = log --numstat --pretty=format:'%n%C(green)%H %C(red)%d%n%Creset%s%n%C(yellow)%aN, %aI%n%C(blue)%cN, %cI%Creset'
 
   mt = mergetool
-
-  pohm = push origin HEAD:main
 
   pr = pull --rebase
   pri = pull --rebase=interactive
