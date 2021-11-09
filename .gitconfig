@@ -84,5 +84,6 @@
   cmd = /usr/local/bin/bcomp "$(wslpath -aw ${LOCAL})" "$(wslpath -aw ${REMOTE})" "$(wslpath -aw ${BASE})" "$(wslpath -aw ${MERGED})"
 [rebase]
   abbreviateCommands = true
+  autosquash = true
 [format]
   pretty = fuller
