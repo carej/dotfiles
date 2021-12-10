@@ -55,7 +55,7 @@
 
   pr   = pull --rebase
   pri  = pull --rebase=interactive
-  prom = pull --rebase=interactive origin main
+  prom = pull --rebase=interactive origin HEAD
 
   rbi = rebase --interactive  
   rba = rebase --abort
