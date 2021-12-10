@@ -24,6 +24,7 @@
   cma  = commit --all --message
   cane = commit --amend --no-edit
   cf   = commit --fixup
+  cfh  = commit --fixup HEAD
   cs   = commit --squash
 
   co  = checkout
