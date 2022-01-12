@@ -80,3 +80,5 @@
   autosquash = true
 [format]
   pretty = fuller
+[init]
+  defaultBranch = main
