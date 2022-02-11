@@ -1,9 +1,9 @@
 [user]
-  name = Jeff Care
+  name  = Jeff Care
   email = jeff.care@upstart.com
 [color]
   status = auto
-  ui = auto
+  ui     = auto
 [push]
   default = upstream
 [pull]
@@ -57,6 +57,9 @@
   pri  = pull --rebase=interactive
   prom = pull --rebase=interactive origin HEAD
 
+  puf  = push --force
+  puff = push --force
+  
   rbi = rebase --interactive  
   rba = rebase --abort
   rbc = rebase --continue
@@ -67,6 +70,8 @@
   rhu = reset --hard @{upstream}
   rh  = reset --hard
 
+  # oh, the irony...
+  #
   s  = status --long
   ss = status --short
 
