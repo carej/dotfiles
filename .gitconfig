@@ -80,6 +80,14 @@
 [core]
   eol = lf
   autocrlf = input
+[diff]
+  tool = bc
+[difftool]
+  prompt = false
+[merge]
+  tool = bc
+[mergetool "bc"]
+  trustExitCode = true
 [rebase]
   abbreviateCommands = true
   autosquash = true
