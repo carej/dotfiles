@@ -24,6 +24,7 @@ function sip() {
 
 # source a bunch of crap and then kill the sip function
 #
+sip $(brew --prefix)/etc/profile.d/bash_completion.sh
 sip /etc/bashrc
 sip ~/.bash_aliases
 sip ~/.bash_functions
