@@ -1,13 +1,14 @@
 # .bash_profile
 
-# get the aliases and functions
+# enable Homebrew to work properly
 #
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # user specific environment and startup programs
 #
 export PATH=${HOME}/.local/bin:${HOME}/bin:${PATH}
 
-# enable Homebrew to work properly
+# get the aliases and functions
 #
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
