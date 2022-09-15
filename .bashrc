@@ -53,10 +53,7 @@ for al in $(git --list-cmds=alias); do
 done
 unset al
 
-# set nano as the editor if it's available
+# pico is installed on MacOS so no need to joke around with trying to map
+# nano to pico
 #
-if command -v nano >/dev/null 2>&1; then
-
-  export EDITOR=nano
-  alias pico='nano'
-fi
+export EDITOR=pico
