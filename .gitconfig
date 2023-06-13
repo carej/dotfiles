@@ -3,46 +3,49 @@
   email = careje@gmail.com
 [color]
   status = auto
-  ui = auto
+  ui     = auto
 [push]
-  default = simple
+  default = upstream
 [pull]
   rebase = true
 [alias]
   # I frequently misspell "add" as "ass" (I did it again when writing this comment)
   #
   ass = add
-  a = add
-  ai = add --interactive
+  a   = add
+  ai  = add --interactive
 
-  b = branch
-  bd = branch --delete
+  b   = branch
+  bd  = branch --delete
   bdr = push origin --delete
-  br = branch --remote
+  br  = branch --remote
 
-  cm = commit --message
-  cma = commit --all --message
+  cm   = commit --message
+  cma  = commit --all --message
   cane = commit --amend --no-edit
+  cf   = commit --fixup
+  cfh  = commit --fixup HEAD
+  cs   = commit --squash
 
-  co = checkout
-  com = checkout master
+  co  = checkout
+  com = checkout main
 
   cp = cherry-pick
 
-  d = diff
+  d  = diff
   dh = diff HEAD
   dp = diff @{upstream}..HEAD
   ds = diff --staged
   du = diff @{upstream}
 
-  dt = difftool
+  dt  = difftool
   dth = difftool HEAD
   dtp = difftool @{upstream}..HEAD
   dts = difftool --staged
   dtu = difftool @{upstream}
 
-  f = fetch
-  fa = fetch --all --tags
+  f   = fetch
+  fa  = fetch --all --tags
   fap = fetch --all --tags --prune
 
   ls = log --pretty=format:'%C(green)%h %C(yellow)[%ar]%C(red)%d %Creset%s%C(blue) [%aN | %cN]'
@@ -50,21 +53,26 @@
 
   mt = mergetool
 
-  pohm = push origin HEAD:main
+  pr   = pull --rebase
+  pri  = pull --rebase=interactive
+  prom = pull --rebase=interactive origin HEAD
 
-  pr = pull --rebase
-  pri = pull --rebase=interactive
-  prom = pull --rebase=interactive origin main
-
+  puf  = push --force
+  puff = push --force
+  
+  rbi = rebase --interactive  
   rba = rebase --abort
   rbc = rebase --continue
 
   # use with caution! this blows away all local changes!
   #
-  ru = reset @{upstream}
+  ru  = reset @{upstream}
   rhu = reset --hard @{upstream}
+  rh  = reset --hard
 
-  s = status --long
+  # oh, the irony...
+  #
+  s  = status --long
   ss = status --short
 
   wtl = worktree list
@@ -87,3 +95,5 @@
   autosquash = true
 [format]
   pretty = fuller
+[init]
+  defaultBranch = main
