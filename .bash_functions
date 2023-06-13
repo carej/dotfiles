@@ -91,47 +91,6 @@ function l() {
 }
 export -f l
 
-# convenience wrapper around "git worktree add"
-#
-function gwta() {
-
-  local arg
-  for arg in "${@}"; do
-
-    git worktree add -b ${arg} ../${arg} origin/${arg}
-  done
-}
-
-# convenience wrapper around "git worktree add" for creating a new working tree
-# from the current HEAD
-#
-function gwtc() {
-
-  local arg
-  for arg in "${@}"; do
-
-    git push origin HEAD:${arg}
-    gwta ${arg}
-  done
-}
-
-# convenience wrapper for performing interactive rebases
-#
-function gqrb() {
-
-  git fetch origin --prune
-  git checkout ${2}
-  git reset --hard @{upstream}
-  git rebase --interactive origin/${1}
-}
-
-# convenience wrapper for ciRebase
-#
-function cirb() {
-
-  ciRebase --to ${1} --from ${2}
-}
-
 # $1 - the file to expand
 # $2 - the expansion destination
 # $3 - recurse
