@@ -4,6 +4,11 @@
 #
 umask 022
 
+# if set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories
+#
+shopt -s globstar
+
 # source (a file) if present
 #
 # $1 - the file to source
